@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guava Disease Detection</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Background & Body */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(to bottom right, #8bc34a, #4caf50);
+            color: #333;
+        }
+
+        /* Container Styling */
+        .container {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+            padding: 30px;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        /* Header */
+        h1 {
+            color: #4caf50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        /* Input Styles */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input[type="file"] {
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin: 15px 0;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+            color: #333;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #388e3c;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 20px;
+            color: #777;
+            font-size: 0.85em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Upload an Image to Detect Guava Disease</h1>
+        <form action="/predict" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/*" required>
+            <input type="submit" value="Upload and Predict">
+        </form>
+        <footer> Helping You Keep Your Guava plant Healthy</footer>
+    </div>
+</body>
+</html>

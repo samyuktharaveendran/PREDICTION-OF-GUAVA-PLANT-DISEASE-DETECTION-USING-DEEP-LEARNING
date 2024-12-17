@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guava Disease Detection Result</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #a8e0e0, #e0f7fa);
+            margin: 0;
+            color: #333;
+        }
+        
+        .result-container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            transition: transform 0.2s;
+        }
+
+        .result-container:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            color: #2e7d32;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .prediction {
+            font-size: 1.5em;
+            color: #1976d2;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .remedy {
+            margin-top: 20px;
+            font-size: 1.1em;
+            color: #555;
+            text-align: left;
+            display: none; /* Initially hidden */
+            padding: 15px;
+            border: 1px solid #4caf50;
+            border-radius: 10px;
+            background-color: #f1f8e9;
+        }
+
+        .back-button, .remedy-button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: #4caf50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .back-button:hover, .remedy-button:hover {
+            background-color: #388e3c;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 600px) {
+            .result-container {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            .prediction {
+                font-size: 1.3em;
+            }
+        }
+    </style>
+    <script>
+        function showRemedy() {
+            const remedyDiv = document.getElementById('remedy');
+            remedyDiv.style.display = 'block'; // Show the remedy when button is clicked
+        }
+    </script>
+</head>
+<body>
+    <div class="result-container">
+        <h2>Guava Disease Detection Result</h2>
+        <img src="{{ image_path }}" alt="Uploaded Image">
+        <p class="prediction">Disease Detected: {{ prediction }}</p>
+        <button class="remedy-button" onclick="showRemedy()">Show Remedy</button>
+        <div id="remedy" class="remedy">
+            <h3>Remedy:</h3>
+            <p>{{ remedy }}</p>
+        </div>
+        <a href="/" class="back-button">Back to Home</a>
+    </div>
+</body>
+</html>
